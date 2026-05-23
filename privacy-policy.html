@@ -26,34 +26,54 @@
       <main class="privacy-page">
         <p class="eyebrow">Privacy Policy</p>
         <h1>Payload Lens Privacy Policy</h1>
-        <p>Payload Lens is a Chrome DevTools extension for inspecting REST and GraphQL API traffic in the browser.</p>
+        <p class="policy-updated">Last updated: May 23, 2026</p>
+        <p>Payload Lens is a Chrome DevTools extension for inspecting REST and GraphQL API traffic in the browser. This policy explains what data the extension handles, how it is used, and how users can control it.</p>
+
+        <h2>Single Purpose</h2>
+        <p>Payload Lens exists to help developers inspect, group, replay, compare, and copy browser API requests and responses inside Chrome DevTools.</p>
 
         <h2>Data Handled</h2>
         <p>Payload Lens can display API request and response data that appears in Chrome DevTools, including URLs, methods, status codes, headers, request bodies, and response bodies.</p>
+        <p>This data may contain personal or sensitive information if the inspected website sends that information through its API traffic.</p>
 
-        <h2>Local Processing</h2>
-        <p>Payload Lens processes captured traffic locally in the browser extension. It does not send captured API traffic to Payload Lens servers.</p>
+        <h2>How Data Is Used</h2>
+        <p>Captured API traffic is used only to provide Payload Lens features, including endpoint grouping, GraphQL operation grouping, formatted inspection, response diffing, request replay, local log preservation, ignored endpoint preferences, and copy helpers.</p>
+
+        <h2>Local Processing and No Account</h2>
+        <p>Payload Lens processes captured traffic locally in the browser extension. It does not require an account and does not send captured API traffic to Payload Lens servers.</p>
+
+        <h2>Chrome Permissions</h2>
+        <p>Payload Lens uses the storage permission to save local preferences and optional redacted preserved logs. It uses the clipboardWrite permission only when the user clicks a copy action, such as copying a payload, header list, fetch snippet, cURL command, or diff value.</p>
 
         <h2>Redaction</h2>
-        <p>Payload Lens redacts common sensitive values before display, copy, and optional persistence. Redacted data includes common auth headers, cookies, sensitive query parameters, and common JSON fields such as tokens, passwords, secrets, session IDs, and API keys.</p>
+        <p>Payload Lens redacts common sensitive values before display, copy, and optional persistence. Redacted data includes common auth headers, cookies, sensitive query parameters, and common JSON fields such as tokens, passwords, secrets, session IDs, and API keys. Redaction is a safety measure, but users should still review copied output before sharing it.</p>
 
-        <h2>Local Storage</h2>
-        <p>If Preserve log is enabled, redacted log entries are stored locally using chrome.storage.local. Ignored endpoint preferences and theme settings are also stored locally. Users can clear saved log entries from the extension UI.</p>
+        <h2>Local Storage, Retention, and Deletion</h2>
+        <p>If Preserve log is enabled, redacted log entries are stored locally using chrome.storage.local. Ignored endpoint preferences and theme settings are also stored locally. Users can clear saved log entries and ignored endpoint preferences from the extension UI. Uninstalling the extension also removes extension-local storage according to Chrome's extension storage behavior.</p>
 
         <h2>Replay</h2>
         <p>Replay runs from the inspected page context and uses the live in-memory request data available during the current DevTools session. Preserved log entries are redacted and are not intended to retain secrets for future replay.</p>
 
-        <h2>Third Parties</h2>
-        <p>Payload Lens does not sell captured data and does not share captured API traffic with third parties.</p>
+        <h2>Sharing and Sale of Data</h2>
+        <p>Payload Lens does not sell captured data and does not share captured API traffic with third parties. The extension does not use captured data for advertising, tracking, profiling, or analytics.</p>
+
+        <h2>Website and Feedback Links</h2>
+        <p>The Payload Lens website is a static promotional site. It does not use product analytics or advertising cookies. The website loads fonts from Google Fonts. If users click external links such as Chrome Web Store, GitHub, or Feedback, those third-party services may process information according to their own policies.</p>
 
         <h2>Chrome Web Store Limited Use</h2>
-        <p>Payload Lens' use of information received from Chrome APIs adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+        <p>Payload Lens' use of information received from Chrome and Google APIs adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+
+        <h2>Changes</h2>
+        <p>If this policy changes, the updated version will be posted on this page with a new Last updated date.</p>
+
+        <h2>Contact</h2>
+        <p>Questions or privacy requests can be sent through the <a href="https://tally.so/r/9qoOoG">Payload Lens feedback form</a>.</p>
       </main>
 
       <footer class="footer">
         <nav class="footer-links" aria-label="Footer navigation">
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="https://github.com/payload-lens/extension">GitHub</a>
+          <a href="https://github.com/payload-lens/web">GitHub</a>
           <a href="https://tally.so/r/9qoOoG">Feedback</a>
         </nav>
         <span>&copy; 2026 Payload Lens. All rights reserved.</span>
