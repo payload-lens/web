@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Policy - Payload Lens</title>
+    <meta name="description" content="Privacy policy for Payload Lens, a REST and GraphQL debugger for Chrome DevTools.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/">
+          <img src="assets/brand-mark-light.png" alt="" aria-hidden="true">
+          <span>Payload Lens</span>
+        </a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="https://chromewebstore.google.com/detail/knkidgfhigdmbppemldoeigcefdfmbhf">Chrome Web Store</a>
+        </div>
+      </nav>
+
+      <main class="privacy-page">
+        <p class="eyebrow">Privacy Policy</p>
+        <h1>Payload Lens Privacy Policy</h1>
+        <p>Payload Lens is a Chrome DevTools extension for inspecting REST and GraphQL API traffic in the browser.</p>
+
+        <h2>Data Handled</h2>
+        <p>Payload Lens can display API request and response data that appears in Chrome DevTools, including URLs, methods, status codes, headers, request bodies, and response bodies.</p>
+
+        <h2>Local Processing</h2>
+        <p>Payload Lens processes captured traffic locally in the browser extension. It does not send captured API traffic to Payload Lens servers.</p>
+
+        <h2>Redaction</h2>
+        <p>Payload Lens redacts common sensitive values before display, copy, and optional persistence. Redacted data includes common auth headers, cookies, sensitive query parameters, and common JSON fields such as tokens, passwords, secrets, session IDs, and API keys.</p>
+
+        <h2>Local Storage</h2>
+        <p>If Preserve log is enabled, redacted log entries are stored locally using chrome.storage.local. Ignored endpoint preferences and theme settings are also stored locally. Users can clear saved log entries from the extension UI.</p>
+
+        <h2>Replay</h2>
+        <p>Replay runs from the inspected page context and uses the live in-memory request data available during the current DevTools session. Preserved log entries are redacted and are not intended to retain secrets for future replay.</p>
+
+        <h2>Third Parties</h2>
+        <p>Payload Lens does not sell captured data and does not share captured API traffic with third parties.</p>
+
+        <h2>Chrome Web Store Limited Use</h2>
+        <p>Payload Lens' use of information received from Chrome APIs adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+      </main>
+
+      <footer class="footer">
+        <span>Payload Lens</span>
+        <a href="/">Home</a>
+      </footer>
+    </div>
+  </body>
+</html>

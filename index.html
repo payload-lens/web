@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payload Lens - REST & GraphQL Debugger</title>
+    <meta name="description" content="Payload Lens is a REST and GraphQL debugger for Chrome DevTools. Group endpoints, inspect payloads, replay calls, diff responses, and copy redacted fetch/cURL.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="/">
+          <img src="assets/brand-mark-light.png" alt="" aria-hidden="true">
+          <span>Payload Lens</span>
+        </a>
+        <div class="nav-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="https://chromewebstore.google.com/detail/knkidgfhigdmbppemldoeigcefdfmbhf">Chrome Web Store</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">REST & GraphQL debugging inside DevTools</p>
+            <h1>Debug APIs by endpoint, not by timeline noise.</h1>
+            <p class="lead">
+              Payload Lens groups real browser API traffic into a focused DevTools workspace for inspecting payloads, replaying requests, comparing responses, and copying redacted fetch/cURL snippets.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="https://chromewebstore.google.com/detail/knkidgfhigdmbppemldoeigcefdfmbhf">Add to Chrome</a>
+              <a class="button" href="#features">See features</a>
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Payload Lens interface preview">
+            <div class="chrome-bar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="mock">
+              <div class="mock-list">
+                <div class="mock-row active">
+                  <div class="mock-title"><span class="method get">GET</span> /api/users/:id/profile</div>
+                  <div class="mock-meta">REST - 4 calls - 200</div>
+                </div>
+                <div class="mock-row">
+                  <div class="mock-title"><span class="method post">POST</span> /api/redaction</div>
+                  <div class="mock-meta">REST - redacted</div>
+                </div>
+                <div class="mock-row">
+                  <div class="mock-title">query GetDashboard</div>
+                  <div class="mock-meta">GraphQL - 2 calls</div>
+                </div>
+                <div class="mock-row">
+                  <div class="mock-title">mutation UpdateProfile</div>
+                  <div class="mock-meta">GraphQL - changed</div>
+                </div>
+              </div>
+              <div class="mock-panel">
+                <div class="mock-tabs">
+                  <span>Response</span>
+                  <span>Request</span>
+                  <span>Headers</span>
+                </div>
+                <pre class="code">{
+  "id": "usr_123",
+  "plan": "pro",
+  "quota": {
+    "remaining": 966
+  },
+  "accessToken": "[redacted]"
+}</pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="section">
+          <h2>A focused API layer on top of Network.</h2>
+          <p class="section-intro">
+            Chrome Network shows every request as a timeline. Payload Lens groups API calls by endpoint and GraphQL operation, so repeated calls, payload changes, replay attempts, and noisy endpoints are easier to reason about.
+          </p>
+
+          <div class="grid">
+            <article class="feature">
+              <h3>Group REST and GraphQL</h3>
+              <p>See normalized REST endpoints and GraphQL operations instead of a long list of repeated raw URLs.</p>
+            </article>
+            <article class="feature">
+              <h3>Replay real requests</h3>
+              <p>Retry captured requests from the inspected page context and diagnose browser replay issues.</p>
+            </article>
+            <article class="feature">
+              <h3>Diff payload changes</h3>
+              <p>Compare repeated JSON responses to spot changed, added, and removed fields quickly.</p>
+            </article>
+            <article class="feature">
+              <h3>Copy safely</h3>
+              <p>Copy redacted fetch snippets, cURL commands, headers, payloads, and diff values.</p>
+            </article>
+            <article class="feature">
+              <h3>Ignore noisy endpoints</h3>
+              <p>Hide chatty endpoints from your workspace and restore them when you need them again.</p>
+            </article>
+            <article class="feature">
+              <h3>Preserve your log</h3>
+              <p>Keep redacted API logs across reloads while staying local to your browser.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Payload Lens</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </footer>
+    </div>
+  </body>
+</html>
