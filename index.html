@@ -11,13 +11,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap"></noscript>
+    <link rel="canonical" href="https://payload-lens.github.io/web/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Payload Lens">
+    <meta property="og:title" content="Payload Lens: REST & GraphQL Debugger">
+    <meta property="og:description" content="Payload Lens is a REST and GraphQL debugger for Chrome DevTools. Group endpoints, inspect payloads, replay calls, diff responses, and copy redacted fetch/cURL.">
+    <meta property="og:url" content="https://payload-lens.github.io/web/">
+    <meta property="og:image" content="https://payload-lens.github.io/web/screenshots/video-thumbnail.png">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="720">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Payload Lens: REST & GraphQL Debugger">
+    <meta name="twitter:description" content="Payload Lens is a REST and GraphQL debugger for Chrome DevTools. Group endpoints, inspect payloads, replay calls, diff responses, and copy redacted fetch/cURL.">
+    <meta name="twitter:image" content="https://payload-lens.github.io/web/screenshots/video-thumbnail.png">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="site">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="index.html">
-          <img src="assets/brand-mark-light.png" alt="" aria-hidden="true">
+          <img src="assets/brand-mark-light.png" alt="" aria-hidden="true" width="34" height="34">
           <span>Payload Lens</span>
         </a>
         <div class="nav-links">
@@ -36,7 +49,7 @@
             </p>
             <div class="actions">
               <a class="button primary" href="https://chromewebstore.google.com/detail/knkidgfhigdmbppemldoeigcefdfmbhf">
-                <img src="assets/icon-chrome-store.webp" alt="" aria-hidden="true">
+                <img src="assets/icon-chrome-store.webp" alt="" aria-hidden="true" width="20" height="20">
                 <span>Add to Chrome</span>
               </a>
               <a class="button" href="#features">See features</a>
@@ -99,6 +112,7 @@
               src="https://www.youtube-nocookie.com/embed/GEgpAAUaZUQ"
               title="Payload Lens video demo"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
               allowfullscreen>
             </iframe>
           </div>
@@ -148,6 +162,24 @@
         <span>&copy; 2026 Payload Lens. All rights reserved.</span>
       </footer>
     </div>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Payload Lens",
+      "description": "A REST and GraphQL debugger for Chrome DevTools. Group endpoints, inspect payloads, replay calls, diff responses, and copy redacted fetch/cURL.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Chrome",
+      "url": "https://payload-lens.github.io/web/",
+      "downloadUrl": "https://chromewebstore.google.com/detail/knkidgfhigdmbppemldoeigcefdfmbhf",
+      "screenshot": "https://payload-lens.github.io/web/screenshots/screenshot-0.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
     <script>
       const samples = {
         profile: {
