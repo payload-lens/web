@@ -114,6 +114,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   min-height: 44px;
   border: 1px solid var(--line);
   border-radius: 6px;
@@ -122,6 +123,12 @@ h1 {
   color: var(--text);
   font-weight: 700;
   text-decoration: none;
+}
+
+.button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .button.primary {
