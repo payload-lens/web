@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="assets/icon-32.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -21,7 +21,6 @@
         </a>
         <div class="nav-links">
           <a href="#demo">Demo</a>
-          <a href="privacy-policy.html">Privacy</a>
           <a href="https://chromewebstore.google.com/detail/knkidgfhigdmbppemldoeigcefdfmbhf">Chrome Web Store</a>
         </div>
       </nav>
@@ -50,31 +49,30 @@
               <span class="dot"></span>
             </div>
             <div class="mock">
-              <div class="mock-list">
-                <div class="mock-row active">
-                  <div class="mock-title"><span class="method get">GET</span> /api/users/:id/profile</div>
-                  <div class="mock-meta">REST - 4 calls - 200</div>
-                </div>
-                <div class="mock-row">
-                  <div class="mock-title"><span class="method post">POST</span> /api/redaction</div>
-                  <div class="mock-meta">REST - redacted</div>
-                </div>
-                <div class="mock-row">
-                  <div class="mock-title">query GetDashboard</div>
-                  <div class="mock-meta">GraphQL - 2 calls</div>
-                </div>
-                <div class="mock-row">
-                  <div class="mock-title">mutation UpdateProfile</div>
-                  <div class="mock-meta">GraphQL - changed</div>
-                </div>
+              <div class="mock-list" aria-label="Sample captured requests">
+                <button class="mock-row active" type="button" data-sample="profile" aria-pressed="true">
+                  <span class="mock-title"><span class="method get">GET</span> /api/users/:id/profile</span>
+                  <span class="mock-meta">REST - 4 calls - 200</span>
+                </button>
+                <button class="mock-row" type="button" data-sample="redaction" aria-pressed="false">
+                  <span class="mock-title"><span class="method post">POST</span> /api/redaction</span>
+                  <span class="mock-meta">REST - redacted</span>
+                </button>
+                <button class="mock-row" type="button" data-sample="dashboard" aria-pressed="false">
+                  <span class="mock-title"><span class="method post">POST</span> query GetDashboard</span>
+                  <span class="mock-meta">GraphQL - 2 calls</span>
+                </button>
+                <button class="mock-row" type="button" data-sample="updateProfile" aria-pressed="false">
+                  <span class="mock-title"><span class="method post">POST</span> mutation UpdateProfile</span>
+                  <span class="mock-meta">GraphQL - changed</span>
+                </button>
               </div>
               <div class="mock-panel">
-                <div class="mock-tabs">
-                  <span>Response</span>
-                  <span>Request</span>
-                  <span>Headers</span>
+                <div class="mock-tabs" role="tablist" aria-label="Sample detail panes">
+                  <button class="active" type="button" role="tab" data-tab="response" aria-selected="true">Response</button>
+                  <button type="button" role="tab" data-tab="request" aria-selected="false">Request</button>
                 </div>
-                <pre class="code">{
+                <pre class="code" id="sample-code" aria-live="polite">{
   "id": "usr_123",
   "plan": "pro",
   "quota": {
@@ -149,5 +147,109 @@
         <span>&copy; 2026 Payload Lens. All rights reserved.</span>
       </footer>
     </div>
+    <script>
+      const samples = {
+        profile: {
+          response: {
+            id: "usr_123",
+            plan: "pro",
+            quota: {
+              remaining: 966
+            },
+            accessToken: "[redacted]"
+          },
+          request: {
+            method: "GET",
+            url: "/api/users/usr_123/profile",
+            query: {
+              include: "quota"
+            }
+          }
+        },
+        redaction: {
+          response: {
+            status: "ok",
+            redactedFields: ["authorization", "cookie", "accessToken"]
+          },
+          request: {
+            method: "POST",
+            url: "/api/redaction",
+            body: {
+              accessToken: "[redacted]",
+              email: "dev@example.com"
+            }
+          }
+        },
+        dashboard: {
+          response: {
+            data: {
+              dashboard: {
+                activeUsers: 1284,
+                conversionRate: 0.143
+              }
+            }
+          },
+          request: {
+            method: "POST",
+            url: "/graphql",
+            operationName: "GetDashboard",
+            query: "query GetDashboard { dashboard { activeUsers conversionRate } }"
+          }
+        },
+        updateProfile: {
+          response: {
+            data: {
+              updateProfile: {
+                id: "usr_123",
+                displayName: "Ada Lovelace"
+              }
+            }
+          },
+          request: {
+            method: "POST",
+            url: "/graphql",
+            operationName: "UpdateProfile",
+            query: "mutation UpdateProfile($name: String!) { updateProfile(name: $name) { id displayName } }",
+            variables: {
+              name: "Ada Lovelace"
+            }
+          }
+        }
+      };
+
+      const sampleButtons = document.querySelectorAll("[data-sample]");
+      const tabButtons = document.querySelectorAll("[data-tab]");
+      const sampleCode = document.querySelector("#sample-code");
+      let activeSample = "profile";
+      let activeTab = "response";
+
+      const renderSample = () => {
+        sampleCode.textContent = JSON.stringify(samples[activeSample][activeTab], null, 2);
+      };
+
+      sampleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          activeSample = button.dataset.sample;
+          sampleButtons.forEach((row) => {
+            const isActive = row === button;
+            row.classList.toggle("active", isActive);
+            row.setAttribute("aria-pressed", String(isActive));
+          });
+          renderSample();
+        });
+      });
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          activeTab = button.dataset.tab;
+          tabButtons.forEach((tab) => {
+            const isActive = tab === button;
+            tab.classList.toggle("active", isActive);
+            tab.setAttribute("aria-selected", String(isActive));
+          });
+          renderSample();
+        });
+      });
+    </script>
   </body>
 </html>
