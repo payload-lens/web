@@ -31,8 +31,9 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir _site
-          cp index.html privacy-policy.html styles.css _site/
+          cp index.html privacy-policy.html styles.css robots.txt sitemap.xml _site/
           cp -R assets _site/assets
+          cp -R screenshots _site/screenshots
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
