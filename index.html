@@ -107,14 +107,16 @@
             </div>
             <a class="text-link" href="https://youtu.be/GEgpAAUaZUQ">Watch on YouTube</a>
           </div>
-          <div class="video-frame">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/GEgpAAUaZUQ"
-              title="Payload Lens video demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              loading="lazy"
-              allowfullscreen>
-            </iframe>
+          <div class="video-frame" id="video-facade">
+            <button class="video-facade-btn" type="button" aria-label="Play Payload Lens demo video" data-video-id="GEgpAAUaZUQ">
+              <img src="screenshots/video-thumbnail.png" alt="Payload Lens demo video thumbnail" width="1280" height="720">
+              <span class="play-icon" aria-hidden="true">
+                <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="36" cy="36" r="36" fill="rgba(0,0,0,0.62)"/>
+                  <polygon points="28,22 28,50 54,36" fill="white"/>
+                </svg>
+              </span>
+            </button>
           </div>
         </section>
 
@@ -283,6 +285,20 @@
           renderSample();
         });
       });
+
+      const facadeBtn = document.querySelector(".video-facade-btn");
+      if (facadeBtn) {
+        facadeBtn.addEventListener("click", () => {
+          const videoId = facadeBtn.dataset.videoId;
+          const iframe = document.createElement("iframe");
+          iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+          iframe.title = "Payload Lens video demo";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+          iframe.style.cssText = "position:absolute;inset:0;width:100%;height:100%;border:0";
+          facadeBtn.closest("#video-facade").replaceChildren(iframe);
+        });
+      }
     </script>
   </body>
 </html>
